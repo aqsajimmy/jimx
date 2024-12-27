@@ -8,23 +8,23 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link @if (request()->routeIs('portal.home')) active @endif" aria-current="page"
+                    <a class="nav-link @if (request()->routeIs('portal.home')) active text-decoration-underline underline-offset-4 @endif" aria-current="page"
                         href="{{ route('portal.home') }}" wire:navigate>Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" wire:current="active" aria-current="page" href="{{ route('portal.about') }}"
+                    <a class="nav-link" wire:current="active text-decoration-underline underline-offset-4" aria-current="page" href="{{ route('portal.about') }}"
                         wire:navigate>About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" wire:current="active" aria-current="page" href="{{ route('portal.blogs') }}"
+                    <a class="nav-link" wire:current="active text-decoration-underline underline-offset-4" aria-current="page" href="{{ route('portal.blogs') }}"
                         wire:navigate>Blogs</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" wire:current="active" aria-current="page"
+                    <a class="nav-link" wire:current="active text-decoration-underline underline-offset-4" aria-current="page"
                         href="{{ route('portal.website-templates') }}" wire:navigate>Web Templates</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" wire:current="active" aria-current="page" href="{{ route('portal.contact') }}"
+                    <a class="nav-link" wire:current="active text-decoration-underline underline-offset-4" aria-current="page" href="{{ route('portal.contact') }}"
                         wire:navigate>Contact</a>
                 </li>
             </ul>
