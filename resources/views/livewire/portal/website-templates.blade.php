@@ -11,7 +11,7 @@
         </div>
     </x-slot>
 
-    <div class="container-fluid">
+    <div class="container-fluid ">
         <div class="row" wire:init="loadTemplates">
 
             <div wire:loading class="col-12 text-center">
