@@ -21,6 +21,7 @@
     @if (config('app.env') === 'local')
         @vite(['resources/js/app.js'])
     @endif
+    @livewireStyles
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -47,7 +48,7 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>
 
-
+    @livewireScripts
 </body>
 
 </html>
