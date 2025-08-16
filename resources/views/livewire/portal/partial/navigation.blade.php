@@ -1,35 +1,47 @@
-<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+<nav x-data="{ scrolled: false }" x-init="window.addEventListener('scroll', () => scrolled = window.scrollY > 10)" :class="{ 'navbar-blur': scrolled }" id="mainNavbar"
+    class="navbar navbar-expand-lg navbar-dark sticky-top transition">
+
     <div class="container-fluid">
-        <a class="navbar-brand ld ld-float-ltr-in" href="{{ route('portal.home') }}">JIMX <span class="ld ld-blur">⚡</span></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <!-- Brand -->
+        <a class="navbar-brand fw-bold animate__animated animate__fadeIn" href="{{ route('portal.home') }}">
+            JIMX <span class="ld ld-blur">⚡</span>
+        </a>
+
+        <!-- Toggler -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <!-- Nav Content -->
+        <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link @if (request()->routeIs('portal.home')) active text-decoration-underline underline-offset-4 @endif" aria-current="page"
-                        href="{{ route('portal.home') }}" wire:navigate>Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" wire:current="active text-decoration-underline underline-offset-4" aria-current="page" href="{{ route('portal.about') }}"
-                        wire:navigate>About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" wire:current="active text-decoration-underline underline-offset-4" aria-current="page" href="{{ route('portal.blogs') }}"
-                        wire:navigate>Blogs</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" wire:current="active text-decoration-underline underline-offset-4" aria-current="page"
-                        href="{{ route('portal.website-templates') }}" wire:navigate>Web Templates</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" wire:current="active text-decoration-underline underline-offset-4" aria-current="page" href="{{ route('portal.contact') }}"
-                        wire:navigate>Contact</a>
-                </li>
+                @php
+                    $navLinks = [
+                        ['label' => 'Home', 'route' => 'portal.home'],
+                        ['label' => 'About', 'route' => 'portal.about'],
+                        ['label' => 'Blogs', 'route' => 'portal.blogs'],
+                        ['label' => 'Web Templates', 'route' => 'portal.website-templates'],
+                        ['label' => 'Contact', 'route' => 'portal.contact'],
+                    ];
+                @endphp
+
+                @foreach ($navLinks as $link)
+                    <li class="nav-item">
+                        <a class="nav-link @if (request()->routeIs($link['route'])) active text-decoration-underline underline-offset-4 @endif"
+                            href="{{ route($link['route']) }}" wire:navigate>
+                            {{ $link['label'] }}
+                        </a>
+                    </li>
+                @endforeach
             </ul>
+
+            <!-- Login Button -->
             <div>
-                <a href="{{ route('login') }}" wire:navigate class="btn btn-outline-discovery rounded-4 ld ld-float-rtl-in">Login</a>
+                <a href="{{ route('login') }}" wire:navigate
+                    class="btn btn-outline-discovery rounded-4 ld ld-float-rtl-in">
+                    Login
+                </a>
             </div>
         </div>
     </div>

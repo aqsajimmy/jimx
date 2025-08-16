@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Portal;
 
+use App\Models\Article;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Livewire\Attributes\Title;
@@ -9,13 +10,25 @@ use Livewire\Attributes\Title;
 class Blogs extends Component
 {
     use WithPagination;
+    public $paginationTheme = 'bootstrap';
     public $title = 'BlØgs';
     public $search;
     public $pp = 6;
+    public bool $readyToLoad = false;
+
     #[Title('BlØgs')]
+
+    function loadBlogs()
+    {
+        $this->readyToLoad = true;
+    }
+
     public function render()
     {
-        $collection = \App\Models\Article::with('category')->where('is_published', true)->paginate($this->pp);
-        return view('livewire.portal.blogs', compact('collection'));
+        return view('livewire.portal.blogs', [
+            'articles' => $this->readyToLoad
+                ? Article::latest()->paginate(6)
+                : collect(),
+        ]);
     }
 }

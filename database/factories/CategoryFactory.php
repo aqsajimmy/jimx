@@ -19,7 +19,7 @@ class CategoryFactory extends Factory
         return [
             'name' => $this->faker->word,
             'slug' => $this->faker->slug,
-            'user_id' => \App\Models\User::inRandomOrder()->first()->id,
+            'created_at' => now(),
         ];
     }
 }

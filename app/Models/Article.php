@@ -10,22 +10,14 @@ class Article extends Model
     use HasFactory;
 
     protected $table = 'articles';
-    protected $fillable = [
-        'title',
-        'content',
-        'slug',
-        'image',
-        'is_published',
-        'category_id',
-        'user_id',
-    ];
+    protected $guarded = [];
 
     public function category()
     {
         return $this->belongsTo(Category::class);
     }
 
-    public function user()
+    public function author()
     {
         return $this->belongsTo(User::class);
     }

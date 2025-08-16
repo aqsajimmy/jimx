@@ -9,18 +9,24 @@
             </div>
         </div>
     </x-slot>
-    <div>
-        <div class="d-flex justify-content-between row">
-            <div class="d-flex justify-content-center align-items-center col-lg-6">
-                <p>
-                    Hi, I'm <em class="text-discovery"><strong>Jimmy</strong></em>, a software engineer here to assist with all your
-                    digital needs.
-                </p>
+    <div class="container py-5">
+        <div class="row align-items-center">
+            <!-- Text Section -->
+            <div class="col-lg-6 col-12 text-center text-lg-start mb-4 mb-lg-0">
+                <h1 class="display-3 fw-bold text-light animate__animated animate__fadeIn">
+                    Hi, I'm <em class="text-discovery"><strong>Jimmy</strong></em><br>
+                    <small class="fw-normal d-block mt-3">A software engineer ready to help with all your digital
+                        needs.</small>
+                </h1>
             </div>
-            <div class="col-lg-6">
-                <img src="{{ asset('assets/img/jimx.webp') }}" alt="JIMX" class="img-fluid ld ld-float-ttb-in float-end"
-                    style="width: 450px; height: 450px;">
+
+            <!-- Image Section -->
+            <div class="col-lg-6 col-12 text-center text-lg-end">
+                <img src="{{ asset('assets/img/jimx.webp') }}" alt="JIMX"
+                    class="img-fluid animate__animated animate__fadeIn"
+                    style="max-width: 100%; height: auto; max-height: 450px;">
             </div>
         </div>
     </div>
+
 </div>

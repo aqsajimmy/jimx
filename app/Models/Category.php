@@ -10,11 +10,7 @@ class Category extends Model
     use HasFactory;
 
     protected $table = 'categories';
-    protected $fillable = [
-        'name',
-        'slug',
-        'user_id',
-    ];
+    protected $guarded = [];
 
     public function user()
     {
@@ -24,5 +20,9 @@ class Category extends Model
     public function articles()
     {
         return $this->hasMany(Article::class);
+    }
+    public function templates()
+    {
+        return $this->hasMany(Template::class);
     }
 }

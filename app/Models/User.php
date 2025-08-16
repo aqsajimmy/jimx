@@ -46,13 +46,12 @@ class User extends Authenticatable
         ];
     }
 
-    public function categories()
-    {
-        return $this->hasMany(Category::class);
-    }
-
     public function articles()
     {
         return $this->hasMany(Article::class);
+    }
+    public function templates()
+    {
+        return $this->hasMany(Template::class);
     }
 }

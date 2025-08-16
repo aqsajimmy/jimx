@@ -20,10 +20,11 @@ class ArticleFactory extends Factory
             'title' => $this->faker->sentence,
             'content' => $this->faker->paragraph(5),
             'slug' => $this->faker->slug,
-            'image' => $this->faker->imageUrl(),
+            'image' => "https://placehold.co/600x400/6E5DC6/white",
             'is_published' => $this->faker->boolean,
             'category_id' => \App\Models\Category::inRandomOrder()->first()->id,
-            'user_id' => \App\Models\User::inRandomOrder()->first()->id,
+            'author_id' => \App\Models\User::inRandomOrder()->first()->id,
+            'created_at' => now(),
         ];
     }
 }

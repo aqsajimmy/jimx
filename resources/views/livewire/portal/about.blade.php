@@ -12,9 +12,9 @@
     </x-slot>
     <div class="row">
         <div class="col-lg-12">
-            <span style="font-size: 6em">
+            <span style="font-size: 6em;color: #f8f9fa;" class="animate__animated animate__fadeIn">
                 There is no something special about me , either <em
-                    class="text-discovery ld ld-float-rtl-in"><strong>Luck</strong></em>
+                    class="text-discovery"><strong>Luck</strong></em>
             </span>
         </div>
     </div>
