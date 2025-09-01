@@ -41,18 +41,26 @@
                                 {{ $collection->name }} ━━ {{ $collection->description }}
                             </p>
                         </div>
-                        <div class="card-footer d-flex d-flex justify-content-between align-items-center">
-                            <div class="d-flex align-items-center">
-                                <a class="btn btn-link p-0 me-auto fw-bold"
-                                    href="{{ route('portal.article', $collection->slug) }}" wire:navigate><i
-                                        class="fa-duotone fa-solid fa-download"></i> Download </a>
-                                │
-                                <a class="btn btn-link p-0 me-auto fw-bold"
-                                    href="{{ route('portal.article', $collection->slug) }}"><i
-                                        class="fa-duotone fa-solid fa-eye"></i> Demo </a>
+                        <div class="card-footer">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <div class="d-flex align-items-center">
+                                    <a class="btn btn-link p-0 me-2 fw-bold"
+                                        href="{{ route('portal.article', $collection->slug) }}" wire:navigate><i
+                                            class="fa-duotone fa-solid fa-download"></i> Download </a>
+                                    │
+                                    <a class="btn btn-link p-0 ms-2 fw-bold"
+                                        href="{{ route('portal.article', $collection->slug) }}"><i
+                                            class="fa-duotone fa-solid fa-eye"></i> Demo </a>
+                                </div>
+                                <div class="fw-bold text-success">
+                                    Rp{{ number_format($collection->price, 0) }}
+                                </div>
                             </div>
-                            <div>
-                                Rp{{ number_format($collection->price, 0) }}
+                            <div class="d-grid">
+                                <a href="{{ route('payment.checkout', $collection->id) }}" 
+                                   class="btn btn-primary btn-sm">
+                                    <i class="fa-duotone fa-solid fa-shopping-cart"></i> Buy Now
+                                </a>
                             </div>
                         </div>
                     </div>
